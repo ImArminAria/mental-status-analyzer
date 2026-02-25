@@ -1,0 +1,6 @@
+torch
+transformers
+gradio
+librosa
+openai
+python-dotenv
