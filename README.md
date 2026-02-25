@@ -1,3 +1,4 @@
+![UI Text](assets/english_test.png)
 # 🧠 Psychologist Assistant
 AI-Based Clinical Conversation Processing System
 
