@@ -48,12 +48,12 @@ The architecture separates transcription, classification, and reasoning layers t
 
 ## 🛠 Tech Stack
 
-- Python
-- PyTorch
-- HuggingFace Transformers
-- OpenAI API
-- Gradio
-- Librosa
+- Python  
+- PyTorch  
+- HuggingFace Transformers  
+- OpenAI API  
+- Gradio  
+- Librosa  
 
 ---
 
@@ -75,7 +75,8 @@ psychologist-assistant/
 │
 ├── assets/
 │   ├── ui_text.png
-│   └── ui_audio.png
+│   ├── ui_audio.png
+│   └── english_test.png
 │
 ├── run.py
 ├── requirements.txt
