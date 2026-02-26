@@ -107,18 +107,18 @@ HF_TOKEN=your_token_here
 The system generates structured JSON output including:
 
 
-"emotion": []
-  "intensity": ""
-  "sentiment": ""
-  "cognitive_patterns": []
-  "coping_strategy": []
-  "risk_signals": []
-  "clinical_flags": []
-  "context": ""
-  "stability": ""
-  "diagnostic_impression": []
-  "confidence": 0.0
-  "urgency": ""
+"emotion":
+"intensity": ""
+"sentiment": ""
+"cognitive_patterns": 
+"coping_strategy": 
+"risk_signals": 
+"clinical_flags": 
+"context": ""
+"stability": ""
+"diagnostic_impression": 
+"confidence": 0.0
+"urgency": ""
 
 
 This output is intended for professional review and structured documentation.
