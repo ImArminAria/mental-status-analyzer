@@ -92,7 +92,14 @@ JSON Output
 ```
 
 
-## 📊 Example Output Structure
+## 📊 Example Input/Output Structure
+input text:
+
+"I'm gonna end soon don't really know what to say, I've tried killing myself like & months ago and failed, today I woke up feeling ok it was the one day that I said to myself ok lets try to be positive, they say that this shit works right?" and it all backfired, got home and got into a fight with my mom because she put all my stuff on boxes and I couldn't find shit I was looking for, then she freaked out and threw his phone and glasses in the ground and then my stepfather started to throw shit at me, so i just left for a walk, wanted to throw me over a bus at the highway but no bus possard, come buck come, minutes later they left to watch over my sister who is at the hospital because she has some pais, they don't know what it is yet, allan they left i went to buy
+some cigarettes and some booze (I've been trying to stop smoking for the last few weeks but fuck it you know), soi came back home, alone, and started binge-smoking and drinking, texted a friend of mine who has been throught this and said that I should call him when i'm feeling low, he just ignored my texts, fuck him, i tried looking for the sleeping pills and other drugs i am supposed to take but apparently my mother took'em with her, so here i am drunk felling like fucking shit and reassuring myself what i've been planning to do to kill muset for the post few weeks, idk what to do, idk why i'm even writing here, just feet fucking lonely you know?, i've been isolating myself for the past few months because if i go with it i think it will be less painfull for the people now if the connection between us is more weak, i got the job of my dreams a few months ago but i still feel like shit, i don't know how to socialize with people, i also been thinking about my sexual orientation i think i might be bisexual but i don't I know how to cope with it, I'm an open minded person but I don't think my family and trends would understand me it came out to them, life just feeis empty you know? I just want to end it soon, and I think I might be trying my second suicide on the coming days, just need someone to talk to anyone, im looking for a reason to stay alive, because right now I don't see one"
+
+
+Output :
 
 ```json
 {
