@@ -75,8 +75,6 @@ psychologist-assistant/
 │   └── system_prompt.txt
 │
 ├── assets/
-│   ├── ui_text.png
-│   ├── ui_audio.png
 │   └── english_test.png
 │
 ├── run.py
