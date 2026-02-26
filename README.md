@@ -96,16 +96,16 @@ JSON Output
 
 ```json
 {
-  "emotion": ["hopelessness", "despair", "loneliness"],
+  "emotion": ["hopelessness", "despair", "loneliness", "anger", "sadness", "confusion", "emptiness", "frustration"],
   "intensity": "critical",
   "sentiment": "very_negative",
-  "cognitive_patterns": ["catastrophizing"],
-  "coping_strategy": ["avoidance"],
-  "risk_signals": ["explicit suicidal intent"],
-  "clinical_flags": ["acute suicide risk"],
+  "cognitive_patterns": ["catastrophizing", "all-or-nothing thinking", "perceived burdensomeness", "social withdrawal", "hopeless future outlook", "emotional reasoning", "self-isolation as protection strategy"],
+  "coping_strategy": ["substance use", "emotional suppression", "avoidance", "social withdrawal", "reaching out for support"],
+  "risk_signals": ["explicit suicidal intent", "prior suicide attempt", "planning future attempt", "method contemplation", "access seeking behavior", "alcohol intoxication", "social isolation", "giving up smoking cessation effort"],
+  "clinical_flags": ["acute suicide risk", "history of suicide attempt", "substance misuse", "family conflict", "identity distress", "social isolation"],
   "context": "present",
   "stability": "crisis",
-  "diagnostic_impression": ["major depressive episode"],
+  "diagnostic_impression": ["major depressive episode", "suicidal behavior disorder", "substance use disorder", "adjustment disorder with depressed mood", "identity-related distress"],
   "confidence": 0.96,
   "urgency": "immediate_help"
 }
