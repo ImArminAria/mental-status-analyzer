@@ -4,6 +4,7 @@ from .models import processor, whisper_model
 from .config import DEVICE
 from .text_pipeline import analyze_text
 
+
 def transcribe_audio(audio_file):
 
     if audio_file is None:
@@ -25,13 +26,22 @@ def transcribe_audio(audio_file):
         skip_special_tokens=True
     )[0]
 
-    return transcription
+    return transcription.strip()
 
-def analyze_audio(audio_file):
 
-    text = transcribe_audio(audio_file)
+def analyze_audio(audio_file, enable_summarization: bool = True):
 
-    if text is None:
-        return "No audio file provided."
+    transcript = transcribe_audio(audio_file)
 
-    return analyze_text(text)
+    if transcript is None or not transcript.strip():
+        return {"error": "No valid audio transcription produced."}
+
+    analysis = analyze_text(
+        transcript,
+        enable_summarization=enable_summarization
+    )
+
+    return {
+        "transcript": transcript,
+        "analysis": analysis
+    }

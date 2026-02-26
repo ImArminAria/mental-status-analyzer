@@ -1,15 +1,17 @@
 import torch
-import json
 from .models import tokenizer, text_model
 from .config import DEVICE
 from .openai_client import analyze_with_gpt
+from .summarizer import summarize_text
+
 
 labels = ["Anxiety", "Depression", "Normal", "Suicidal"]
 
-def analyze_text(text):
+
+def analyze_text(text, enable_summarization: bool = True):
 
     if not text or not text.strip():
-        return "Please enter text."
+        return {"error": "Please enter text."}
 
     inputs = tokenizer(
         text,
@@ -25,12 +27,21 @@ def analyze_text(text):
         outputs = text_model(**inputs)
         pred = outputs.logits.argmax(-1).item()
 
-    gpt_result = analyze_with_gpt(text)
+    bert_label = labels[pred]
 
-    return f"""🧠 MENTAL STATE:
 
-BERT: {labels[pred]}
+    if enable_summarization:
+        processed_text = summarize_text(text)
+    else:
+        processed_text = text
 
-GPT:
-{json.dumps(gpt_result, indent=2, ensure_ascii=False)}
-"""
+  
+    gpt_result = analyze_with_gpt(processed_text)
+
+    return {
+        "bert_prediction": bert_label,
+        "summarization_enabled": enable_summarization,
+        "original_word_count": len(text.split()),
+        "processed_word_count": len(processed_text.split()),
+        "gpt_analysis": gpt_result
+    }

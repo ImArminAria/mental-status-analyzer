@@ -4,3 +4,5 @@ gradio
 librosa
 openai
 python-dotenv
+transformers
+sentencepiece

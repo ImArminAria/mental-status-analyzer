@@ -1,49 +1,115 @@
-![UI Text](assets/english_test.png)
-# 🧠 Psychologist Assistant
-AI-Based Clinical Conversation Processing System
+
+![UI Text](assets/ui_text.png)
+
+# 🧠 Psychologist Assistant  
+AI-Based NLP System for Clinical Conversation Analysis  
 
 ---
 
 ## 📌 Overview
 
-Psychologist Assistant is an AI-powered support system designed to process and analyze segments of psychotherapy sessions.
+**Psychologist Assistant** is an NLP-based system designed to process and analyze psychotherapy session segments using a multi-layer AI architecture.
 
-The system allows professionals to upload therapist–patient conversation segments in text or audio format and receive structured analytical insights using natural language processing models.
+The system supports both **text and audio input**, performs structured psychological signal extraction, and generates analytical JSON output using a combination of transformer-based models and Large Language Models (LLMs).
 
-This tool supports clinical workflow and does not replace professional judgment.
+This project is intended for research, prototyping, and workflow support — not as a replacement for licensed clinical judgment.
 
 ---
 
-## 🎙 Supported Input Types
+## 🧠 Core Concept
 
-- **Text Input**
-  - Therapy session transcripts
-  - Written clinical notes
+This project is built as a layered Natural Language Processing (NLP) pipeline:
 
-- **Audio Input**
-  - Uploaded WAV session segments
-  - Automatic speech-to-text transcription
-  - NLP-based semantic analysis
+1. Automatic Speech Recognition (ASR)
+2. Transformer-based mental state classification
+3. Optional cost-optimized text summarization
+4. LLM-based structured reasoning
+5. JSON-based structured output generation
+
+The architecture separates classification, summarization, and reasoning to ensure modularity, scalability, and cost control.
+
+---
+
+## 🎯 Key Features
+
+- ✅ Text-based psychotherapy session analysis  
+- ✅ Audio-to-text transcription using Whisper  
+- ✅ Transformer-based mental state classification (BERT)  
+- ✅ LLM-powered structured psychological insight generation  
+- ✅ Cost-optimized summarization layer before LLM processing  
+- ✅ Toggle between Mock GPT and Real OpenAI API  
+- ✅ Structured JSON output for documentation workflows  
+- ✅ Modular and production-oriented architecture  
+- ✅ Gradio-based user interface  
+
+---
+
+## 🔍 NLP & AI Models Used
+
+### 🧩 Mental State Classification
+- Transformer-based model: `mental/mental-bert-base-uncased`
+- Framework: PyTorch + HuggingFace Transformers
+- Purpose: Multi-class mental state detection  
+  (Anxiety, Depression, Normal, Suicidal)
+
+### 🎙 Speech-to-Text
+- Model: `openai/whisper-base`
+- Purpose: Transcription of therapy session audio segments
+
+### ✂ Text Summarization (Cost Optimization Layer)
+- Default Model: `sshleifer/distilbart-cnn-12-6`
+- Optional: `facebook/bart-large-cnn`
+- Purpose: Reduce token usage before LLM processing
+
+### 🧠 LLM Structured Analysis
+- Model: OpenAI GPT (e.g., `gpt-4o-mini`)
+- Purpose:
+  - Extract emotional indicators
+  - Identify cognitive patterns
+  - Detect behavioral markers
+  - Assess risk signals
+  - Generate structured JSON insights
 
 ---
 
 ## ⚙️ Processing Pipeline
 
-1. Audio (if provided) is transcribed using a speech recognition model.
-2. The transcript is analyzed using a transformer-based classifier.
-3. Psychological indicators are extracted.
-4. Structured JSON output is generated for review.
 
----
+```
+Text / Audio Input
+        ↓
+Whisper (if audio)
+        ↓
+Raw Transcript
+        ↓
+BERT Classification (Full Text)
+        ↓
+Summarization Layer (Optional)
+        ↓
+LLM Structured Analysis
+        ↓
+JSON Output
+```
 
-## 🏗 Architecture
 
-- Speech-to-Text Module (ASR)
-- Transformer-based Classification (BERT)
-- LLM-based Structured Analysis
-- Gradio User Interface
+## 📊 Example Output Structure
 
-The architecture separates transcription, classification, and reasoning layers to ensure modularity and scalability.
+```json
+{
+  "emotion": ["hopelessness", "despair", "loneliness"],
+  "intensity": "critical",
+  "sentiment": "very_negative",
+  "cognitive_patterns": ["catastrophizing"],
+  "coping_strategy": ["avoidance"],
+  "risk_signals": ["explicit suicidal intent"],
+  "clinical_flags": ["acute suicide risk"],
+  "context": "present",
+  "stability": "crisis",
+  "diagnostic_impression": ["major depressive episode"],
+  "confidence": 0.96,
+  "urgency": "immediate_help"
+}
+```
 
 ---
 
@@ -58,7 +124,7 @@ The architecture separates transcription, classification, and reasoning layers t
 
 ---
 
-## 📂 Project Structure
+## 🏗 Project Structure
 
 ```
 psychologist-assistant/
@@ -66,16 +132,17 @@ psychologist-assistant/
 ├── app/
 │   ├── config.py
 │   ├── models.py
+│   ├── summarizer.py
 │   ├── text_pipeline.py
 │   ├── audio_pipeline.py
 │   ├── openai_client.py
 │   └── ui.py
 │
+├── assets/
+│   └── ui_text.png
+│
 ├── prompts/
 │   └── system_prompt.txt
-│
-├── assets/
-│   └── english_test.png
 │
 ├── run.py
 ├── requirements.txt
@@ -84,61 +151,38 @@ psychologist-assistant/
 
 ---
 
-## 🚀 Setup
+## 💰 Cost Optimization Strategy
+
+To reduce LLM token usage:
+
+- Long transcripts are summarized before being sent to the OpenAI API.
+- The summarization layer can be enabled or disabled from the UI.
+- The system supports a mock GPT mode for free testing.
+
+This design makes the system scalable and cost-aware for production deployment.
+
+---
+
+## 🔐 Environment Variables
+
+Create a `.env` file if needed:
+
+```
+OPENAI_API_KEY=your_openai_key
+HF_TOKEN=your_huggingface_token
+USE_MOCK_GPT=true
+SUMMARIZER_MODEL=sshleifer/distilbart-cnn-12-6
+```
+
+---
+
+## 🚀 Run the Project
 
 ```bash
-git clone <repository-url>
-cd psychologist-assistant
 pip install -r requirements.txt
 python run.py
 ```
 
-If required, create a `.env` file:
-
-```
-OPENAI_API_KEY=your_key_here
-HF_TOKEN=your_token_here
-```
-
----
-
-## 📊 Output
-
-The system generates structured JSON output including:
-
-{
-  "emotion":
-
-  "intensity": ""
-
-  "sentiment": ""
-
-  "cognitive_patterns": 
-
-  "coping_strategy": 
-
-  "risk_signals": 
-
-  "clinical_flags": 
-
-  "context": ""
-
-  "stability": ""
-
-  "diagnostic_impression": 
-
-  "confidence": 0.0
-
-  "urgency": ""
-}
-
-
-This output is intended for professional review and structured documentation.
-
----
-
 ## ⚠️ Disclaimer
 
-This project is intended for research and demonstration purposes only.
-
-It does not provide medical diagnosis and must not be used as a substitute for professional psychiatric or psychological evaluation.
+This project is intended for research and technical demonstration purposes.
