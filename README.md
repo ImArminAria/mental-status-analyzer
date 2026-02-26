@@ -102,24 +102,17 @@ some cigarettes and some booze (I've been trying to stop smoking for the last fe
 Output :
 ```json
 {
-  "bert_prediction"
-  :
-  "Depression"
-  ,
-  "summarization_enabled"
-  :
-  true
-  ,
-  "original_word_count"
-  :
-  159
-  ,
-  "processed_word_count"
-  :
-  159
-  ,
+  "bert_prediction":
+  "suicidal",
 
+  "summarization_enabled":
+  true,
 
+  "original_word_count":
+  500,
+
+  "processed_word_count":
+  500,
 {
   "emotion": ["hopelessness", "despair", "loneliness", "anger", "sadness", "confusion", "emptiness", "frustration"],
   "intensity": "critical",
