@@ -108,7 +108,6 @@ The system generates structured JSON output including:
 
 
 "emotion":
-
 "intensity": ""
 
 "sentiment": ""
