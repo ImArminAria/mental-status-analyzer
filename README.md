@@ -106,7 +106,7 @@ HF_TOKEN=your_token_here
 
 The system generates structured JSON output including:
 
-{
+
   "emotion": [],
   "intensity": "",
   "sentiment": "",
@@ -119,7 +119,7 @@ The system generates structured JSON output including:
   "diagnostic_impression": [],
   "confidence": 0.0,
   "urgency": ""
-}
+
 
 This output is intended for professional review and structured documentation.
 
